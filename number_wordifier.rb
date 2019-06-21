@@ -33,7 +33,7 @@ class NumberWordifier
 
   def combine_words matching_words
     # Construct 10 letter word combination from the words matching/filtered.
-    combination_array = (2..3).flat_map{|n| matching_words.combination(n).to_a} # Max 3 words can be combined for an 10 digit number
+    combination_array = (2..3).flat_map{|n| matching_words.permutation(n).to_a} # Max 3 words can be combined for an 10 digit number
     combination_array = combination_array.select{|arr| arr.join.length == 10} # select combinations with length 10
     combination_array.map{|ele| ele.join(',')} #join to form a single
 
